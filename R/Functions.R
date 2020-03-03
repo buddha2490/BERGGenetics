@@ -5,6 +5,7 @@
 findID <- function(idv){
   load("s:/user/bcarter/genetics/CPS2 Genetic Data/Data/CPS2 Genetics Files Sample Lists - 2019-08-15.Rdata")
 
+  require(dplyr)
   df <- CPS2_Genetics$Summary
   indf <- df[df$ID %in% idv,]
   studies <- names(indf)
@@ -28,11 +29,11 @@ findID <- function(idv){
 # Do we have this SNP?
 
 findSNP <- function(findthesesnps){
+  require(dplyr)
+    load("s:/user/bcarter/genetics/cps2 genetic data/data/SNP lists for all CPSII genetics files - 2019-08-15.rdata")
 
-  load("s:/user/bcarter/genetics/cps2 genetic data/data/SNP lists for all CPSII genetics files - 2019-08-15.rdata")
-
-  studies <- names(SNPs_CPS2_Projects)
-  studies <- studies[studies != "Summary"]
+    studies <- names(SNPs_CPS2_Projects)
+    studies <- studies[studies != "Summary"]
   snps <- data.frame(SNP=findthesesnps,stringsAsFactors=F)
 
   allSNPs_CPS2_Projects <- lapply(studies,function(x){
