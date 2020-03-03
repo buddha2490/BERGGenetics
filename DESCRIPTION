@@ -6,5 +6,8 @@ Author: Brian Carter
 Maintainer: Brian Carter <brian.carter@cancer.org>
 Description: Search the metadata files for CPS2 Genetics
 License: None
+Imports:
+	dplyr,
+	data.table,
 Encoding: UTF-8
 LazyData: true
