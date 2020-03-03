@@ -3,7 +3,9 @@
 
 # Functions ---------------------------------------------------------------
 findID <- function(idv){
-  df <- BERGSamples$Summary
+  load("s:/user/bcarter/genetics/CPS2 Genetic Data/Data/CPS2 Genetics Files Sample Lists - 2019-08-15.Rdata")
+
+  df <- CPS2_Genetics$Summary
   indf <- df[df$ID %in% idv,]
   studies <- names(indf)
   studies <- studies[!studies %in% c("ID","GWAS.DATA")]
@@ -26,12 +28,15 @@ findID <- function(idv){
 # Do we have this SNP?
 
 findSNP <- function(findthesesnps){
-  studies <- names(BERGSNPs)
+
+  load("s:/user/bcarter/genetics/cps2 genetic data/data/SNP lists for all CPSII genetics files - 2019-08-15.rdata")
+
+  studies <- names(SNPs_CPS2_Projects)
   studies <- studies[studies != "Summary"]
   snps <- data.frame(SNP=findthesesnps,stringsAsFactors=F)
 
-  allBERGSNPs <- lapply(studies,function(x){
-    df <- data.frame(SNP=as.character(BERGSNPs[[x]])[BERGSNPs[[x]] %in% findthesesnps],
+  allSNPs_CPS2_Projects <- lapply(studies,function(x){
+    df <- data.frame(SNP=as.character(SNPs_CPS2_Projects[[x]])[SNPs_CPS2_Projects[[x]] %in% findthesesnps],
                      stringsAsFactors=F)
 
     if (nrow(df) != 0) {
@@ -48,7 +53,7 @@ findSNP <- function(findthesesnps){
 
 
   # Here's an ugly loop to drop a lot of missing values
-  foo <-  allBERGSNPs
+  foo <-  allSNPs_CPS2_Projects
   foo$Summary <- as.character(rep("",nrow(foo)))
 
   for (a in 1:nrow(foo)) {
