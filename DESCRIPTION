@@ -9,5 +9,6 @@ License: None
 Imports:
 	dplyr,
 	data.table,
+	magrittr
 Encoding: UTF-8
 LazyData: true
