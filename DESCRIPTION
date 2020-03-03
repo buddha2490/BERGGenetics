@@ -1,11 +1,10 @@
 Package: BERGGenetics
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Query the CPS2 Genetics Data
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Author: Brian Carter
+Maintainer: Brian Carter <brian.carter@cancer.org>
+Description: Search the metadata files for CPS2 Genetics
+License: None
 Encoding: UTF-8
 LazyData: true
